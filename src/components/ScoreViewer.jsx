@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import * as alphaTab from '@coderline/alphatab'
 import './ScoreViewer.css'
 
@@ -6,9 +6,10 @@ export default function ScoreViewer() {
 
     const containerRef = useRef(null)
     const apiRef = useRef(null)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const api = new alphaTab.AlphaTabApi(containerRef.current,{
+        const api = new alphaTab.AlphaTabApi(containerRef.current, {
             file: '/musicxml/test.musicxml',
             player: {
                 enablePlayer: true,
@@ -17,6 +18,14 @@ export default function ScoreViewer() {
         })
 
         apiRef.current = api
+
+        api.renderStarted.on(() => {
+            setLoading(true)
+        })
+
+        api.renderFinished.on(() => {
+            setLoading(false)
+        })
 
         return () => {
             api.destroy()
@@ -29,11 +38,13 @@ export default function ScoreViewer() {
 
     return (
         <div className="at-wrap">
-            <div className="at-overlay">
-                <div className="at-overlay-content">
-                    loading..
+            {loading && (
+                <div className="at-overlay">
+                    <div className="at-overlay-content">
+                        loading..
+                    </div>
                 </div>
-            </div>
+            )}
 
             <div className="at-content">
                 <div className="at-viewport">
