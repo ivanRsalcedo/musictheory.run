@@ -1,6 +1,13 @@
 :root {
-  --rutgers-black: #222222;
-  --rutgers-red: #cc0033;
+  /* RU color palette! */
+  --rutgers-red: #970b3f;
+  --rutgers-taupe: #8a7e71;
+  --rutgers-black: #231f20;
+  --rutgers-coral: #e05342;
+  --rutgers-plum: #563f45;
+  --rutgers-gold: #ffc20e;
+  --rutgers-blue: #2093ac;
+  --rutgers-mint: #c6dbd3;
 
   --font-body: 'Source Sans 3', system-ui, sans-serif;
   --font-heading: 'PT Serif', Georgia, serif;

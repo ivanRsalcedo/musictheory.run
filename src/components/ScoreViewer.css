@@ -55,3 +55,21 @@
     color: white;
     padding: 8px 12px;
 }
+
+/* current bar section */
+.at-cursor-bar {
+    background: var(--rutgers-gold);
+    opacity: 0.18;
+}
+
+/* playhead */
+.at-cursor-beat {
+    background: var(--rutgers-red);
+    width: 3px;
+}
+
+/* notes */
+.at-highlight * {
+    fill: var(--rutgers-red);
+    stroke: var(--rutgers-plum); 
+}
