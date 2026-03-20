@@ -9,6 +9,8 @@ export default function ScoreViewer() {
     const apiRef = useRef(null)
     const [loading, setLoading] = useState(true)
     const [isPlaying, setIsPlaying] = useState(false)
+    const [playerReady, setPlayerReady] = useState(false)
+    const [playerProgress, setPlayerProgress] = useState('0%')
 
     useEffect(() => {
         const api = new alphaTab.AlphaTabApi(containerRef.current, {
@@ -32,6 +34,16 @@ export default function ScoreViewer() {
 
         api.playerStateChanged.on((e) => {
             setIsPlaying(e.state === alphaTab.synth.PlayerState.Playing)
+        })
+
+        api.soundFontLoad.on((e) => {
+            const percentage = Math.floor((e.loaded / e.total) * 100)
+            setPlayerProgress(`${percentage}%`)
+        })
+
+        api.playerReady.on(() => {
+            setPlayerReady(true)
+            setPlayerProgress('')
         })
 
         return () => {
@@ -60,7 +72,10 @@ export default function ScoreViewer() {
             </div>
 
             <div className="at-controls">
-                <button onClick={handlePlay}>{isPlaying ? '❚❚' : '▶'}</button>
+                <button onClick={handlePlay} disabled={!playerReady}>
+                    {isPlaying ? '❚❚' : '▶'}
+                </button>
+                <span>{playerProgress}</span>
             </div>
         </div>
     )
