@@ -1,6 +1,11 @@
 :root {
   --rutgers-black: #222222;
   --rutgers-red: #cc0033;
+
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
+  --font-heading: 'PT Serif', Georgia, serif;
+  --font-display: 'Oswald', sans-serif;
+  --font-ui: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -11,4 +16,80 @@
 
 body {
   background: white;
+  color: var(--rutgers-black);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+p,
+li,
+small,
+label {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+h4 {
+  font-size: 1.75rem;
+}
+
+h5 {
+  font-size: 1.375rem;
+}
+
+h6 {
+  font-size: 1.125rem;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-ui);
+}
+
+.display-text,
+.stat-text,
+.big-date {
+  font-family: var(--font-display);
+}
+
+.display-text {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.stat-text {
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.big-date {
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 500;
 }
