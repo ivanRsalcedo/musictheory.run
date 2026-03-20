@@ -5,15 +5,18 @@ import './ScoreViewer.css'
 export default function ScoreViewer() {
 
     const containerRef = useRef(null)
+    const viewportRef = useRef(null)
     const apiRef = useRef(null)
     const [loading, setLoading] = useState(true)
+    const [isPlaying, setIsPlaying] = useState(false)
 
     useEffect(() => {
         const api = new alphaTab.AlphaTabApi(containerRef.current, {
             file: '/musicxml/test.musicxml',
             player: {
                 enablePlayer: true,
-                soundFont: '/soundfont/sonivox.sf2'
+                soundFont: '/soundfont/sonivox.sf2',
+                scrollElement: viewportRef.current
             }
         })
 
@@ -25,6 +28,10 @@ export default function ScoreViewer() {
 
         api.renderFinished.on(() => {
             setLoading(false)
+        })
+
+        api.playerStateChanged.on((e) => {
+            setIsPlaying(e.state === alphaTab.synth.PlayerState.Playing)
         })
 
         return () => {
@@ -47,13 +54,13 @@ export default function ScoreViewer() {
             )}
 
             <div className="at-content">
-                <div className="at-viewport">
+                <div className="at-viewport" ref={viewportRef}>
                     <div className="at-main" ref={containerRef}></div>
                 </div>
             </div>
 
             <div className="at-controls">
-                <button onClick={handlePlay}>Play / Pause</button>
+                <button onClick={handlePlay}>{isPlaying ? '❚❚' : '▶'}</button>
             </div>
         </div>
     )
