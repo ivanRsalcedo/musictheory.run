@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as alphaTab from '@coderline/alphatab'
+import './ScoreViewer.css'
 
 export default function ScoreViewer() {
 
@@ -27,9 +28,22 @@ export default function ScoreViewer() {
     }
 
     return (
-        <>
-            <button onClick={handlePlay}>test</button>
-            <div ref={containerRef}></div>
-        </>
+        <div className="at-wrap">
+            <div className="at-overlay">
+                <div className="at-overlay-content">
+                    loading..
+                </div>
+            </div>
+
+            <div className="at-content">
+                <div className="at-viewport">
+                    <div className="at-main" ref={containerRef}></div>
+                </div>
+            </div>
+
+            <div className="at-controls">
+                <button onClick={handlePlay}>Play / Pause</button>
+            </div>
+        </div>
     )
 }
