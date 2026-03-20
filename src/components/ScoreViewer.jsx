@@ -12,6 +12,7 @@ export default function ScoreViewer() {
     const [isPlaying, setIsPlaying] = useState(false)
     const [playerReady, setPlayerReady] = useState(false)
     const [playerProgress, setPlayerProgress] = useState('0%')
+    const [playbackSpeed, setPlaybackSpeed] = useState('1')
 
     useEffect(() => {
         const api = new alphaTab.AlphaTabApi(containerRef.current, {
@@ -64,6 +65,15 @@ export default function ScoreViewer() {
         viewportRef.current.scrollTop = 0
     }
 
+    const handleSpeedChange = (e) => {
+        const newSpeed = e.target.value
+        setPlaybackSpeed(newSpeed)
+
+        if (apiRef.current) {
+            apiRef.current.playbackSpeed = Number(newSpeed)
+        }
+    }
+
     const handleViewerKeyDown = (e) => {
         if (e.code === 'Space') {
             e.preventDefault()
@@ -77,9 +87,8 @@ export default function ScoreViewer() {
             ref={wrapperRef}
             tabIndex={0}
             onKeyDown={handleViewerKeyDown}
-            onClick={() => wrapperRef.current?.focus()}
         >
-            
+
             {loading && (
                 <div className="at-overlay">
                     <div className="at-overlay-content">
@@ -88,7 +97,7 @@ export default function ScoreViewer() {
                 </div>
             )}
 
-            <div className="at-content">
+            <div className="at-content" onClick={() => wrapperRef.current?.focus()}>
                 <div className="at-viewport" ref={viewportRef}>
                     <div className="at-main" ref={containerRef}></div>
                 </div>
@@ -101,6 +110,17 @@ export default function ScoreViewer() {
 
                 <button onClick={handleRestart} disabled={!playerReady}>↺</button>
 
+                <select value={playbackSpeed} onChange={handleSpeedChange}>
+                    <option value="0.25">0.25x</option>
+                    <option value="0.5">0.5x</option>
+                    <option value="0.75">0.75x</option>
+                    <option value="0.9">0.9x</option>
+                    <option value="1">1x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2x</option>
+                </select>
+                
                 <span>{playerProgress}</span>
             </div>
         </div>
