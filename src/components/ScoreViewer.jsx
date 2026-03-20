@@ -7,6 +7,7 @@ export default function ScoreViewer() {
     const containerRef = useRef(null)
     const viewportRef = useRef(null)
     const apiRef = useRef(null)
+    const wrapperRef = useRef(null)
     const [loading, setLoading] = useState(true)
     const [isPlaying, setIsPlaying] = useState(false)
     const [playerReady, setPlayerReady] = useState(false)
@@ -30,6 +31,7 @@ export default function ScoreViewer() {
 
         api.renderFinished.on(() => {
             setLoading(false)
+            wrapperRef.current?.focus()
         })
 
         api.playerStateChanged.on((e) => {
@@ -62,8 +64,22 @@ export default function ScoreViewer() {
         viewportRef.current.scrollTop = 0
     }
 
+    const handleViewerKeyDown = (e) => {
+        if (e.code === 'Space') {
+            e.preventDefault()
+            apiRef.current?.playPause()
+        }
+    }
+
     return (
-        <div className="at-wrap">
+        <div
+            className="at-wrap"
+            ref={wrapperRef}
+            tabIndex={0}
+            onKeyDown={handleViewerKeyDown}
+            onClick={() => wrapperRef.current?.focus()}
+        >
+            
             {loading && (
                 <div className="at-overlay">
                     <div className="at-overlay-content">
