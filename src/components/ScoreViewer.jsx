@@ -55,6 +55,13 @@ export default function ScoreViewer() {
         apiRef.current?.playPause()
     }
 
+    const handleRestart = () => {
+        if (!apiRef.current || !viewportRef.current) return
+
+        apiRef.current.stop()
+        viewportRef.current.scrollTop = 0
+    }
+
     return (
         <div className="at-wrap">
             {loading && (
@@ -75,6 +82,9 @@ export default function ScoreViewer() {
                 <button onClick={handlePlay} disabled={!playerReady}>
                     {isPlaying ? '❚❚' : '▶'}
                 </button>
+
+                <button onClick={handleRestart} disabled={!playerReady}>↺</button>
+
                 <span>{playerProgress}</span>
             </div>
         </div>
