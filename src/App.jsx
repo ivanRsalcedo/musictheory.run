@@ -8,7 +8,7 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/"/>
+        <Route path="/" element={<div>Home</div>} />
         <Route path="/exercises" element={<div>Exercises</div>} />
         <Route path="/homework" element={<ScoreViewer />} />
         <Route path="/glossary" element={<div>Glossary</div>} />
