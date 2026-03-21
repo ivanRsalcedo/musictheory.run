@@ -17,6 +17,7 @@ export default function ScoreViewer() {
     useEffect(() => {
         const api = new alphaTab.AlphaTabApi(containerRef.current, {
             file: '/musicxml/test.musicxml',
+            fontDirectory: '/font/',
             player: {
                 enablePlayer: true,
                 soundFont: '/soundfont/sonivox.sf2',
