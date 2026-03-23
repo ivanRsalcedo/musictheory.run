@@ -1,0 +1,86 @@
+.controls {
+    display: grid;
+    grid-template-columns: 0.4fr 1.1fr 1.5fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.controlBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+.resultsMeta {
+    margin-bottom: 20px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
+    gap: 18px;
+    justify-content: start;
+}
+
+.emptyState {
+    border: var(--border);
+    background: white;
+    padding: 24px;
+}
+
+.emptyTitle {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.emptyText {
+    color: var(--rutgers-plum);
+}
+
+.resetButton {
+    height: 30px;
+    padding: 0 14px;
+    border: 1px solid var(--rutgers-red);
+    background: white;
+    color: var(--rutgers-red);
+    font-size: 0.95rem;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.resetButton:focus-visible {
+    outline: 2px solid var(--rutgers-red);
+    outline-offset: 1px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .resetButton:hover {
+        background: var(--rutgers-red);
+        color: white;
+    }
+}
+
+@media (max-width: 900px) {
+    .controls {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .controls {
+        grid-template-columns: 1fr;
+    }
+}

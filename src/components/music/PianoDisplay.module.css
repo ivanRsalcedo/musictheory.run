@@ -1,0 +1,103 @@
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.keyboard {
+    position: relative;
+    user-select: none;
+}
+
+.keyboardLarge {
+    min-height: 220px;
+}
+
+.keyboardSmall {
+    min-height: 72px;
+}
+
+.whiteKeys {
+    display: flex;
+    position: absolute;
+    inset: 0 auto 0 0;
+}
+
+.blackKeys {
+    position: absolute;
+    inset: 0 auto 0 0;
+    pointer-events: none;
+}
+
+.whiteKey {
+    position: relative;
+    border: 1px solid var(--rutgers-mint);
+    background: var(--off-white);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+
+.whiteKey:hover {
+    background: var(--rutgers-mint);
+}
+
+.activeWhiteKey,
+.activeWhiteKey:hover,
+.activeWhiteKey:focus {
+    background: var(--rutgers-blue);
+    color: white;
+}
+
+.blackKey {
+    position: absolute;
+    top: 0;
+    border: 1px solid var(--rutgers-black);
+    background: var(--rutgers-black);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8px;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.blackKey:hover {
+    background: var(--rutgers-plum);
+}
+
+.activeBlackKey,
+.activeBlackKey:hover,
+.activeBlackKey:focus {
+    background: var(--rutgers-blue);
+    color: white;
+}
+
+button.whiteKey,
+button.blackKey {
+    cursor: pointer;
+}
+
+.keyLabel {
+    font-size: 0.78rem;
+    line-height: 1;
+}
+
+.blackKeyLabel {
+    font-size: 0.68rem;
+    line-height: 1;
+}
+
+.keyboardSmall .whiteKey {
+    padding-bottom: 0;
+}
+
+.keyboardSmall .blackKey {
+    padding-bottom: 0;
+}
+
+.keyboardSmall .keyLabel,
+.keyboardSmall .blackKeyLabel {
+    display: none;
+}

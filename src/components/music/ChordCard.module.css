@@ -1,0 +1,189 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border: 1px solid var(--rutgers-mint);
+    background: white;
+    padding: 18px;
+    min-height: 100%;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.titleBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.35rem;
+    line-height: 1.15;
+}
+
+.group {
+    margin: 0;
+    font-size: 0.68rem;
+    font-style: italic;
+    line-height: 1.2;
+    color: var(--rutgers-plum);
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.resourceLink {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 38px;
+    border: 1px solid var(--rutgers-blue);
+    color: var(--rutgers-blue);
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    background: white;
+}
+
+.previewRow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 12px;
+    border-top: var(--border);
+}
+
+.previewButtons {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    height: 72px;
+    flex-shrink: 0;
+}
+
+.playButton,
+.modeButton {
+    width: 40px;
+    flex: 1;
+    border: 1px solid var(--rutgers-blue);
+    background: white;
+    color: var(--rutgers-blue);
+    font-family: var(--font-ui);
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.playButton {
+    border-bottom: none;
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.modeButton {
+    font-size: 0.70rem;
+    line-height: 1;
+    padding: 2px;
+}
+
+.modeButtonActive {
+    background: var(--rutgers-blue);
+    color: white;
+}
+
+.playButton:disabled,
+.modeButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.resourceLink:focus-visible,
+.playButton:focus-visible,
+.modeButton:focus-visible {
+    outline: 2px solid var(--rutgers-blue);
+    outline-offset: 2px;
+}
+
+.pianoPreview {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.fingering {
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    color: var(--rutgers-plum);
+    font-weight: 700;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .resourceLink:hover {
+        background: var(--rutgers-blue);
+        color: white;
+    }
+
+    .playButton:hover,
+    .modeButton:hover {
+        background: var(--rutgers-blue);
+        color: white;
+    }
+
+    .modeButtonActive:hover {
+        background: var(--rutgers-blue);
+        color: white;
+    }
+}
+
+@media (max-width: 640px) {
+    .card {
+        padding: 16px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .group {
+        font-size: 0.82rem;
+    }
+
+    .previewButtons,
+    .playButton,
+    .modeButton {
+        width: 36px;
+    }
+
+    .previewButtons {
+        height: 72px;
+    }
+
+    .playButton {
+        font-size: 0.9rem;
+    }
+
+    .modeButton {
+        font-size: 0.48rem;
+    }
+
+    .resourceLink {
+        min-width: 52px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+}
