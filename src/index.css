@@ -78,25 +78,33 @@ textarea {
   font-family: var(--font-ui);
 }
 
-.display-text,
-.stat-text,
-.big-date {
-  font-family: var(--font-display);
+a {
+  color: var(--rutgers-red);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
 }
 
-.display-text {
-  font-size: 3rem;
-  line-height: 1;
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+  opacity: 0.85;
 }
 
-.stat-text {
-  font-size: 4rem;
-  line-height: 1;
-  font-weight: 500;
+.paper-section {
+  border: 1px solid #dddddd;
+  padding: 22px 24px;
 }
 
-.big-date {
-  font-size: 3.75rem;
-  line-height: 1;
-  font-weight: 500;
+.paper-section h3 {
+  margin-bottom: 12px;
+}
+
+.paper-section p {
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.paper-section p:last-child {
+  margin-bottom: 0;
 }

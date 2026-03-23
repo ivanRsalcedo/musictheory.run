@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router'
 import styles from './Header.module.css'
-import { navItems } from '../data/navigation'
+import { navItems } from '../../data/navigation'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
