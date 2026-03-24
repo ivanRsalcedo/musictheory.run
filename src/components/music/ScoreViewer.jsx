@@ -18,6 +18,9 @@ export default function ScoreViewer() {
         const api = new alphaTab.AlphaTabApi(containerRef.current, {
             file: '/musicxml/test.musicxml',
             fontDirectory: '/font/',
+            display: {
+                scale: 0.85
+            },
             player: {
                 enablePlayer: true,
                 soundFont: '/soundfont/sonivox.sf2',
