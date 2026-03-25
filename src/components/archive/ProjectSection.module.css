@@ -1,0 +1,74 @@
+.projectSection {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.projectSection+.projectSection {
+    border-top: var(--border);
+    padding-top: 18px;
+}
+
+.projectSectionTitle {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.15;
+    color: var(--rutgers-red);
+}
+
+.trackList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.trackCard {
+    border-top: var(--border);
+    padding-top: 12px;
+}
+
+.trackCard:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.trackHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.trackTitle {
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.15;
+    color: var(--rutgers-black);
+}
+
+.trackMeta {
+    margin: 0;
+    color: var(--rutgers-plum);
+    font-size: 0.74rem;
+    font-style: italic;
+    line-height: 1.2;
+}
+
+.audioPlayer {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .projectSectionTitle {
+        font-size: 1.6rem;
+    }
+
+    .trackTitle {
+        font-size: 1rem;
+    }
+
+    .trackMeta {
+        font-size: 0.7rem;
+    }
+}

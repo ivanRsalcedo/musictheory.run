@@ -3,6 +3,6 @@ export const navItems = [
     { to: '/practice', label: 'Practice' },
     { to: '/sheets', label: 'Sheets' },
     { to: '/chords', label: 'Chords' },
-    { to: '/gallery', label: 'Gallery' },
+    { to: '/archive', label: 'Archive' },
     { to: '/about', label: 'About' },
 ]

@@ -1,0 +1,72 @@
+.noticeSection {
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.noticeText {
+    color: var(--rutgers-plum);
+}
+
+.timelineSection {
+    margin-top: 24px;
+}
+
+.timelineSection :global(.vertical-timeline::before) {
+    background: var(--rutgers-taupe);
+    width: 4px;
+}
+
+.timelineSection :global(.vertical-timeline-element .vertical-timeline-element-date) {
+    font-family: var(--font-heading);
+    color: var(--rutgers-black);
+    font-size: 2.2rem;
+    line-height: 1;
+    opacity: 1;
+}
+
+.timelineSection :global(.vertical-timeline-element-content) {
+    background: white;
+    color: var(--rutgers-black);
+    border: 1px solid rgba(204, 0, 51, 0.24);
+    border-top: 4px solid var(--rutgers-red);
+    box-shadow: none;
+}
+
+.timelineSection :global(.vertical-timeline-element-content-arrow) {
+    border-right: 7px solid rgba(204, 0, 51, 0.24);
+}
+
+.timelineSection :global(.vertical-timeline-element-icon) {
+    background: var(--rutgers-red);
+    box-shadow: none;
+}
+
+.timelineDot {
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+}
+
+.semesterContent {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.mobileSemester {
+    display: none;
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.9rem;
+    color: var(--rutgers-black);
+}
+
+@media (max-width: 768px) {
+    .timelineSection :global(.vertical-timeline-element .vertical-timeline-element-date) {
+        display: none;
+    }
+
+    .mobileSemester {
+        display: block;
+    }
+}

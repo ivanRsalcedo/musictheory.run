@@ -36,7 +36,7 @@ export default function About() {
                             I want this site to continue helping students in all future semesters. 
                         </p>
                         <p>
-                            I also hope to build a free, module-based course that teaches the same core concepts for people who may not have the opportunity to take the class in person. The approach taught in this curriculum is so intuitive, practical, and applicable across all kinds of music, and I believe it should be more widely accessible.
+                            I also hope to build a free, module-based course here that teaches the same core concepts for people who don't have the opportunity to take the class in person. The approach taught in this curriculum is so intuitive, practical, and applicable across all kinds of music, and I believe it should be more widely accessible!
                         </p>
                     </section>
                 </div>

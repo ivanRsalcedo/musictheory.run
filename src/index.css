@@ -100,6 +100,13 @@ a:focus-visible {
   padding: 22px 24px;
 }
 
+.paper-section-accent {
+  border: var(--border);
+  border-top: 4px solid var(--rutgers-red);
+  background: linear-gradient(to bottom, rgba(204, 0, 51, 0.04), white 22px);
+  padding: 22px 24px;
+}
+
 .paper-section h3 {
   margin-bottom: 12px;
 }
