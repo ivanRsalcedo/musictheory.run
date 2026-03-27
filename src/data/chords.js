@@ -22,6 +22,11 @@ const CHORD_GROUPS = {
         name: 'Borrowed Chords From C Melodic Major',
         link: '/pdfs/chordal-components/Chordal Components - Borrowed Chords From C Melodic Major.pdf',
     },
+    BORROWED_FROM_F_MAJOR: {
+        course: ['Music Theory II'],
+        name: 'Borrowed Chords From F Major',
+        link: '/pdfs/chordal-components/Chordal Components - Borrowed Chords From F Major.pdf',
+    },
 }
 
 class Chord {
@@ -283,6 +288,40 @@ const bb13Sharp119Omit3 = new Chord(
 
 /*
 |--------------------------------------------------------------------------
+| Borrowed Chords From F Major
+|--------------------------------------------------------------------------
+*/
+
+const gMinor1311 = new Chord(
+    'G-13(11)',
+    ['G2', 'F3', 'Bb3', 'C4', 'E4', 'G4'],
+    ['L5', 'L1', 'R1', 'R2', 'R4', 'R5'],
+    CHORD_GROUPS.BORROWED_FROM_F_MAJOR
+).setPage(1)
+
+const bbMajor13Sharp119 = new Chord(
+    'BbΔ13#11(9)',
+    ['Bb2', 'D3', 'A3', 'C4', 'E4', 'G4'],
+    ['L5', 'L3', 'L1', 'R1', 'R3', 'R5'],
+    CHORD_GROUPS.BORROWED_FROM_F_MAJOR
+).setPage(2)
+
+const c7FromFMajor = new Chord(
+    'C7',
+    ['C3', 'E3', 'Bb3', 'C4', 'E4', 'G4'],
+    ['L5', 'L3', 'L1', 'R1', 'R3', 'R5'],
+    CHORD_GROUPS.BORROWED_FROM_F_MAJOR
+).setPage(3)
+
+const c7SusAdd3 = new Chord(
+    'C7sus(add 3)',
+    ['C3', 'F3', 'Bb3', 'C4', 'E4', 'G4'],
+    ['L5', 'L2', 'L1', 'R1', 'R3', 'R5'],
+    CHORD_GROUPS.BORROWED_FROM_F_MAJOR
+).setPage(4)
+
+/*
+|--------------------------------------------------------------------------
 | Progression links
 |--------------------------------------------------------------------------
 |
@@ -327,10 +366,18 @@ const borrowedChordsFromCMelodicMajor = [
     bb13Sharp119Omit3,
 ]
 
+const borrowedChordsFromFMajor = [
+    gMinor1311,
+    bbMajor13Sharp119,
+    c7FromFMajor,
+    c7SusAdd3,
+]
+
 const chords = [
     ...cMajorExtendedChords,
     ...cMajorDiatonicAddAndExtendedChords,
     ...borrowedChordsFromEbMajor,
+    ...borrowedChordsFromFMajor,
     ...borrowedChordsFromCMelodicMajor,
 ]
 
@@ -340,6 +387,7 @@ export {
     cMajorExtendedChords,
     cMajorDiatonicAddAndExtendedChords,
     borrowedChordsFromEbMajor,
+    borrowedChordsFromFMajor,
     borrowedChordsFromCMelodicMajor,
     chords,
 }
