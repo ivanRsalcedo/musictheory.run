@@ -23,21 +23,12 @@ export default function Header() {
                     onClick={handleCloseMenu}
                     aria-label="Go to homepage"
                 >
-                    <div className={styles.logoBox}>
-                        <img
-                            className={`${styles.logo} ${styles.desktopLogo}`}
-                            src="/images/logo_name.svg"
-                            alt="Rutgers logo"
-                        />
+                    <span className={styles.logoText}>RUN</span>
 
-                        <img
-                            className={`${styles.logo} ${styles.mobileLogo}`}
-                            src="/images/logo.svg"
-                            alt="Rutgers logo"
-                        />
-                    </div>
-
-                    <span className={styles.title}>MUSIC THEORY</span>
+                    <span className={styles.titleStack}>
+                        <span className={styles.titleLine}>MUSIC</span>
+                        <span className={styles.titleLine}>THEORY</span>
+                    </span>
                 </Link>
 
                 <nav className={styles.nav} aria-label="Main navigation">
