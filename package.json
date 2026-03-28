@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@coderline/alphatab": "^1.8.1",
+    "firebase": "^12.11.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "^7.13.1",
