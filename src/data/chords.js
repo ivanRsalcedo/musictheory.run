@@ -1,12 +1,12 @@
 const CHORD_GROUPS = {
     C_MAJOR_EXTENDED_CHORDS: {
-        course: ['Music Theory I', 'Music Theory II'],
+        course: ['Music Theory I'],
         name: 'C Major Extended Chords',
         link: 'https://drive.google.com/drive/u/0/folders/1mdhY-FCX55OiupbUMJr5iynbnpnrVobk',
     },
 
     C_MAJOR_DIATONIC_ADD_AND_EXTENDED: {
-        course: ['Music Theory I', 'Music Theory II'],
+        course: ['Music Theory I'],
         name: 'C Major Diatonic Add and Extended Chords',
         link: '/pdfs/chordal-components/Chordal Components - C Major Diatonic Add and Extended Chords.pdf',
     },
