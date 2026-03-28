@@ -6,7 +6,7 @@ export default function Practice() {
     return (
         <PageShell>
             <PageIntro
-                title="placeholder"
+                title="Practice" description="Coming soon!"
             />
         </PageShell>
     )
