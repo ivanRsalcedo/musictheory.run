@@ -9,7 +9,7 @@ export default function About() {
                 title="About"
                 description={
                     <>
-                        by{' '}<a href="https://www.linkedin.com/in/ivanrsalcedo/" target="_blank" rel="noreferrer">Ivan Salcedo</a>{' '}· Updated on Mar 22, 2026
+                        by <a href="https://www.linkedin.com/in/ivanrsalcedo/" target="_blank" rel="noreferrer">Ivan Salcedo</a> · Updated on Mar 22, 2026
                     </>
                 }
             />

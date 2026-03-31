@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router'
 import styles from './Header.module.css'
 import { navItems } from '../../data/navigation'
+import AuthControls from '../auth/AuthControls'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -47,16 +48,20 @@ export default function Header() {
                     ))}
                 </nav>
 
-                <button
-                    className={styles.menuButton}
-                    type="button"
-                    aria-label="Toggle menu"
-                    aria-expanded={isMenuOpen}
-                    aria-controls="mobile-navigation"
-                    onClick={handleMenuToggle}
-                >
-                    ☰
-                </button>
+                <div className={styles.actions}>
+                    <AuthControls />
+
+                    <button
+                        className={styles.menuButton}
+                        type="button"
+                        aria-label="Toggle menu"
+                        aria-expanded={isMenuOpen}
+                        aria-controls="mobile-navigation"
+                        onClick={handleMenuToggle}
+                    >
+                        ☰
+                    </button>
+                </div>
             </div>
 
             <nav

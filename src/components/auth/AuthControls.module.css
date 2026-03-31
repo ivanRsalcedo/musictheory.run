@@ -1,0 +1,79 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.button {
+    border: 1px solid var(--rutgers-black);
+    background: white;
+    color: var(--rutgers-black);
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.button:hover:not(:disabled) {
+    background: var(--rutgers-red);
+    color: white;
+    border-color: var(--rutgers-red);
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.auth {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+}
+
+.identity {
+    font-size: 0.9rem;
+    color: white;
+    opacity: 0.95;
+}
+
+.dot {
+    font-size: 0.9rem;
+    color: white;
+    opacity: 0.7;
+}
+
+.signOut {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.signOut:hover:not(:disabled) {
+    opacity: 0.8;
+}
+
+.signOut:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.identityButton {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.identityButton:hover {
+    opacity: 0.8;
+}
