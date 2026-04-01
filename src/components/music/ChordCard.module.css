@@ -20,11 +20,12 @@
     flex-direction: column;
     gap: 4px;
     min-width: 0;
+    flex: 1;
 }
 
 .title {
     margin: 0;
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     line-height: 1.15;
 }
 
@@ -40,19 +41,37 @@
     text-overflow: ellipsis;
 }
 
-.resourceLink {
+.cardActions {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
     flex-shrink: 0;
+}
+
+.iconButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 48px;
-    height: 38px;
-    border: 1px solid var(--rutgers-blue);
-    color: var(--rutgers-blue);
-    text-decoration: none;
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--rutgers-taupe);
+    border-radius: 999px;
     background: white;
+    color: var(--rutgers-taupe);
+    cursor: pointer;
+    text-decoration: none;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.favoriteButtonActive {
+    color: var(--rutgers-red);
+    border-color: var(--rutgers-red);
+}
+
+.pdfButton {
+    color: var(--rutgers-red);
+    border-color: var(--rutgers-red);
 }
 
 .previewRow {
@@ -78,7 +97,6 @@
     border: 1px solid var(--rutgers-blue);
     background: white;
     color: var(--rutgers-blue);
-    font-family: var(--font-ui);
     font-weight: 700;
     cursor: pointer;
     display: inline-flex;
@@ -94,7 +112,7 @@
 }
 
 .modeButton {
-    font-size: 0.70rem;
+    font-size: 0.7rem;
     line-height: 1;
     padding: 2px;
 }
@@ -105,12 +123,13 @@
 }
 
 .playButton:disabled,
-.modeButton:disabled {
+.modeButton:disabled,
+.iconButton:disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
 
-.resourceLink:focus-visible,
+.iconButton:focus-visible,
 .playButton:focus-visible,
 .modeButton:focus-visible {
     outline: 2px solid var(--rutgers-blue);
@@ -126,16 +145,27 @@
 .fingering {
     margin: 0;
     text-align: center;
-    font-family: var(--font-ui);
     font-size: 0.95rem;
     color: var(--rutgers-plum);
     font-weight: 700;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .resourceLink:hover {
-        background: var(--rutgers-blue);
+    .iconButton:hover {
+        border-color: var(--rutgers-red);
+        color: var(--rutgers-red);
+    }
+
+    .favoriteButtonActive:hover {
+        color: var(--rutgers-red);
+        border-color: var(--rutgers-red);
+        opacity: 0.85;
+    }
+
+    .pdfButton:hover {
+        background: var(--rutgers-red);
         color: white;
+        border-color: var(--rutgers-red);
     }
 
     .playButton:hover,
@@ -163,6 +193,15 @@
         font-size: 0.82rem;
     }
 
+    .cardActions {
+        gap: 0.3rem;
+    }
+
+    .iconButton {
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
     .previewButtons,
     .playButton,
     .modeButton {
@@ -179,11 +218,5 @@
 
     .modeButton {
         font-size: 0.48rem;
-    }
-
-    .resourceLink {
-        min-width: 52px;
-        height: 40px;
-        font-size: 0.8rem;
     }
 }

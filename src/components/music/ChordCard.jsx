@@ -1,5 +1,6 @@
 import styles from './ChordCard.module.css'
 import PianoDisplay from './PianoDisplay'
+import { FaHeart, FaRegHeart, FaFilePdf } from 'react-icons/fa'
 
 function formatFingering(fingering = []) {
     if (!fingering.length) return ''
@@ -14,6 +15,8 @@ export default function ChordCard({
     onPlayNote,
     onEnableDrone,
     onDisableDrone,
+    isFavorite,
+    onToggleFavorite,
 }) {
     const previewNotes = chord.notes ?? []
     const fingering = formatFingering(chord.fingering)
@@ -48,16 +51,35 @@ export default function ChordCard({
                     <p className={styles.group}>{chord.group}</p>
                 </div>
 
-                {resourceHref && (
-                    <a
-                        className={styles.resourceLink}
-                        href={resourceHref}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={resourceLabel}
-                        title={resourceLabel}
-                    >PDF</a>
-                )}
+                <div className={styles.cardActions}>
+                    {resourceHref && (
+                        <a
+                            className={`${styles.iconButton} ${styles.pdfButton}`}
+                            href={resourceHref}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={resourceLabel}
+                            title={resourceLabel}
+                        >
+                            <FaFilePdf />
+                        </a>
+                    )}
+                    <button
+                        type="button"
+                        className={
+                            isFavorite
+                                ? `${styles.iconButton} ${styles.favoriteButtonActive}`
+                                : styles.iconButton
+                        }
+                        onClick={() => onToggleFavorite(chord.id)}
+                        aria-label={isFavorite ? `Remove ${chord.title} from favorites` : `Add ${chord.title} to favorites`}
+                        title={isFavorite ? 'Remove favorite' : 'Add favorite'}
+                    >
+                        {isFavorite ? <FaHeart /> : <FaRegHeart />}
+                    </button>
+
+                    
+                </div>
             </div>
 
             <div className={styles.previewRow}>

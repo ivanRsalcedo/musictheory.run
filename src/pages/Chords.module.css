@@ -26,6 +26,36 @@
     gap: 16px;
 }
 
+.resultsActions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.favoritesToggle {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--rutgers-red);
+    background: white;
+    color: var(--rutgers-red);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.favoritesToggleActive {
+    background: var(--rutgers-red);
+    color: white;
+}
+
+.favoritesToggle:focus-visible {
+    outline: 2px solid var(--rutgers-gold);
+    outline-offset: 1px;
+}
+
 .cardGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
@@ -70,6 +100,15 @@
     .resetButton:hover {
         background: var(--rutgers-red);
         color: white;
+    }
+
+    .favoritesToggle:hover {
+        background: var(--rutgers-red);
+        color: white;
+    }
+
+    .favoritesToggleActive:hover {
+        opacity: 0.9;
     }
 }
 

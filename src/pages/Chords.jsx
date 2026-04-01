@@ -1,4 +1,7 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import useAuth from '../hooks/useAuth'
+import { getUserFavorites, addFavorite, removeFavorite } from '../lib/favorites'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { useSearchParams } from 'react-router'
 import styles from './Chords.module.css'
 import { chords } from '../data/chords'
@@ -18,6 +21,9 @@ const COURSE_OPTIONS = ['all', 'Music Theory I', 'Music Theory II']
 const ROOT_ORDER = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
 
 export default function Chords() {
+    const { user } = useAuth()
+    const [favoriteIds, setFavoriteIds] = useState([])
+    const [showFavoritesOnly, setShowFavoritesOnly] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
 
     const rawCourse = searchParams.get('course') ?? FILTER_DEFAULTS.course
@@ -79,14 +85,26 @@ export default function Chords() {
         : FILTER_DEFAULTS.root
 
     const filteredChords = useMemo(() => {
-        if (selectedRoot === FILTER_DEFAULTS.root) {
-            return chordsForSelectedCourseAndGroup
+        const rootFilteredChords =
+            selectedRoot === FILTER_DEFAULTS.root
+                ? chordsForSelectedCourseAndGroup
+                : chordsForSelectedCourseAndGroup.filter(
+                    (chord) => chord.root === selectedRoot
+                )
+
+        if (!showFavoritesOnly) {
+            return rootFilteredChords
         }
 
-        return chordsForSelectedCourseAndGroup.filter(
-            (chord) => chord.root === selectedRoot
+        return rootFilteredChords.filter((chord) =>
+            favoriteIds.includes(chord.id)
         )
-    }, [chordsForSelectedCourseAndGroup, selectedRoot])
+    }, [
+        chordsForSelectedCourseAndGroup,
+        selectedRoot,
+        showFavoritesOnly,
+        favoriteIds,
+    ])
 
     useEffect(() => {
         const normalizedParams = new URLSearchParams()
@@ -116,6 +134,15 @@ export default function Chords() {
         selectedRoot,
         setSearchParams,
     ])
+
+    useEffect(() => {
+        async function loadFavorites() {
+            const favorites = await getUserFavorites(user)
+            setFavoriteIds(favorites)
+        }
+
+        loadFavorites()
+    }, [user])
 
     function updateFilters(nextValues) {
         const nextCourse = nextValues.course ?? selectedCourse
@@ -168,6 +195,7 @@ export default function Chords() {
 
     function handleResetFilters() {
         stopAllAudio()
+        setShowFavoritesOnly(false)
         setSearchParams({})
     }
 
@@ -179,11 +207,36 @@ export default function Chords() {
         disableDrone(chordId)
     }
 
+    function handleFavoritesFilterToggle() {
+        stopAllAudio()
+        setShowFavoritesOnly((currentValue) => !currentValue)
+    }
+
+    async function handleToggleFavorite(chordId) {
+        if (!user) {
+            alert('Please sign in with your Rutgers account to save favorites.')
+            return
+        }
+
+        const isAlreadyFavorite = favoriteIds.includes(chordId)
+
+        if (isAlreadyFavorite) {
+            await removeFavorite(user, chordId)
+            setFavoriteIds((currentIds) =>
+                currentIds.filter((id) => id !== chordId)
+            )
+            return
+        }
+
+        await addFavorite(user, chordId)
+        setFavoriteIds((currentIds) => [...currentIds, chordId])
+    }
+
     return (
         <PageShell>
             <PageIntro
                 title="Chords"
-                description="Filter class chord voicings by root, course, or chordal-components group"
+                description="Filter class chord voicings by root, course, or chord group"
             />
 
             <div className={styles.controls}>
@@ -240,14 +293,33 @@ export default function Chords() {
             <div className={styles.resultsMeta}>
                 <p>{filteredChords.length} entries found</p>
 
-                <button
-                    id="reset-filters"
-                    type="button"
-                    className={styles.resetButton}
-                    onClick={handleResetFilters}
-                    aria-label="Reset all filters"
-                    title="Reset all filters"
-                >Reset</button>
+                <div className={styles.resultsActions}>
+                    <button
+                        id="reset-filters"
+                        type="button"
+                        className={styles.resetButton}
+                        onClick={handleResetFilters}
+                        aria-label="Reset all filters"
+                        title="Reset all filters"
+                    >
+                        Reset
+                    </button>
+                    <button
+                        type="button"
+                        className={
+                            showFavoritesOnly
+                                ? `${styles.favoritesToggle} ${styles.favoritesToggleActive}`
+                                : styles.favoritesToggle
+                        }
+                        onClick={handleFavoritesFilterToggle}
+                        aria-label={showFavoritesOnly ? 'Show all chords' : 'Show favorites only'}
+                        title={showFavoritesOnly ? 'Show all chords' : 'Show favorites only'}
+                    >
+                        {showFavoritesOnly ? <FaHeart /> : <FaRegHeart />}
+                    </button>
+
+                    
+                </div>
             </div>
 
             {filteredChords.length > 0 ? (
@@ -262,6 +334,8 @@ export default function Chords() {
                             onPlayNote={playNote}
                             onEnableDrone={handleEnableDrone}
                             onDisableDrone={handleDisableDrone}
+                            isFavorite={favoriteIds.includes(chord.id)}
+                            onToggleFavorite={handleToggleFavorite}
                         />
                     ))}
                 </div>
