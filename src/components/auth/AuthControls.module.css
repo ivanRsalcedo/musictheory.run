@@ -6,19 +6,19 @@
 }
 
 .button {
-    border: 1px solid var(--rutgers-black);
-    background: white;
-    color: var(--rutgers-black);
+    border: 1px solid white;
+    background: transparent;
+    color: white;
     font-size: 0.9rem;
-    padding: 0.5rem 0.8rem;
+    padding: 0.35rem 0.75rem;
     cursor: pointer;
     white-space: nowrap;
 }
 
 .button:hover:not(:disabled) {
-    background: var(--rutgers-red);
-    color: white;
-    border-color: var(--rutgers-red);
+    background: white;
+    color: var(--rutgers-red);
+    border-color: white;
 }
 
 .button:disabled {
