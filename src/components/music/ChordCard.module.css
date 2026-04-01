@@ -70,10 +70,6 @@
     font-size: 1.15rem;
 }
 
-.favoriteButton {
-    color: var(--rutgers-taupe);
-}
-
 .favoriteButtonActive {
     color: var(--rutgers-gold);
     border-color: var(--rutgers-gold);
@@ -83,15 +79,12 @@
     color: var(--rutgers-red);
 }
 
-.favoriteButton:disabled,
 .iconButton:disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
 
-.favoriteButton:focus-visible,
 .iconButton:focus-visible,
-.pdfButton:focus-visible,
 .playButton:focus-visible,
 .modeButton:focus-visible {
     outline: 2px solid var(--rutgers-blue);
@@ -131,8 +124,12 @@
 
 .playButton {
     border-bottom: none;
-    font-size: 0.95rem;
     line-height: 1;
+}
+
+.playButton svg {
+    width: 14px;
+    height: 14px;
 }
 
 .modeButton {
@@ -172,11 +169,9 @@
         border-color: var(--rutgers-gold);
     }
 
-    .favoriteButtonActive:hover {
-        color: var(--rutgers-gold);
-        border-color: var(--rutgers-gold);
-        opacity: 0.85;
-    }
+        .favoriteButtonActive:hover {
+            opacity: 0.85;
+        }
 
     .pdfButton:hover {
         color: var(--rutgers-red);
@@ -221,10 +216,6 @@
 
     .previewButtons {
         height: 72px;
-    }
-
-    .playButton {
-        font-size: 0.9rem;
     }
 
     .modeButton {

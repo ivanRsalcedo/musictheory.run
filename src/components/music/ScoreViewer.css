@@ -1,7 +1,7 @@
 .at-wrap {
     height: 80vh;
     margin: 24px auto;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: var(--border);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -23,7 +23,6 @@
     overflow-y: auto;
     position: absolute;
     inset: 0;
-    /* scroll bar re-placement */
     padding-right: 20px;
 }
 
@@ -53,26 +52,115 @@
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     background: var(--rutgers-red);
     color: white;
-    padding: 8px 12px;
+    padding: 10px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-/* current bar section */
+.at-controls button,
+.at-controls select {
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.78);
+    background: white;
+    color: var(--rutgers-black);
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.at-controls button {
+    min-width: 36px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.at-controls button svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.at-controls select {
+    min-width: 92px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.at-controls button:disabled,
+.at-controls select:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.at-controls button:focus-visible,
+.at-controls select:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+.at-controls span {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    white-space: nowrap;
+}
+
 .at-cursor-bar {
     background: var(--rutgers-gold);
     opacity: 0.18;
 }
 
-/* playhead */
 .at-cursor-beat {
     background: var(--rutgers-red);
     width: 3px;
 }
 
-/* notes */
 .at-highlight * {
     fill: var(--rutgers-red);
-    stroke: var(--rutgers-plum); 
+    stroke: var(--rutgers-plum);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .at-controls button:hover:not(:disabled),
+    .at-controls select:hover:not(:disabled) {
+        border-color: var(--rutgers-black);
+    }
+}
+
+@media (max-width: 640px) {
+    .at-wrap {
+        height: 72vh;
+        margin: 20px auto;
+    }
+
+    .at-main {
+        padding: 10px;
+    }
+
+    .at-controls {
+        gap: 8px;
+        padding: 8px 10px;
+    }
+
+    .at-controls button,
+    .at-controls select {
+        height: 34px;
+    }
+
+    .at-controls button {
+        min-width: 34px;
+    }
+
+    .at-controls select {
+        min-width: 78px;
+        padding: 0 10px;
+    }
+
+    .at-controls button svg {
+        width: 15px;
+        height: 15px;
+    }
 }

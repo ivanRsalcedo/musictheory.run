@@ -1,3 +1,5 @@
+import { FaPlay, FaPause } from 'react-icons/fa'
+import { MdReplay } from 'react-icons/md'
 import { useState, useEffect, useRef } from 'react'
 import * as alphaTab from '@coderline/alphatab'
 import './ScoreViewer.css'
@@ -109,10 +111,12 @@ export default function ScoreViewer() {
 
             <div className="at-controls">
                 <button onClick={handlePlay} disabled={!playerReady}>
-                    {isPlaying ? '❚❚' : '▶'}
+                    {isPlaying ? <FaPause /> : <FaPlay />}
                 </button>
 
-                <button onClick={handleRestart} disabled={!playerReady}>↺</button>
+                <button onClick={handleRestart} disabled={!playerReady}>
+                    <MdReplay />
+                </button>
 
                 <select value={playbackSpeed} onChange={handleSpeedChange}>
                     <option value="0.25">0.25x</option>

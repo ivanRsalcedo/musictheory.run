@@ -1,6 +1,6 @@
 import styles from './ChordCard.module.css'
 import PianoDisplay from './PianoDisplay'
-import { FaStar, FaRegStar, FaFilePdf } from 'react-icons/fa'
+import { FaStar, FaRegStar, FaFilePdf, FaPlay } from 'react-icons/fa'
 
 function formatFingering(fingering = []) {
     if (!fingering.length) return ''
@@ -91,7 +91,7 @@ export default function ChordCard({
                         disabled={!isSamplerReady || previewNotes.length === 0}
                         aria-label={`Play ${chord.title}`}
                         title="Play chord"
-                    >▶</button>
+                    ><FaPlay /></button>
 
                     <button
                         type="button"
