@@ -2,7 +2,10 @@ import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
 import { auth } from './firebase'
 import { ensureUserDocument } from './users'
 
-const provider = new GoogleAuthProvider()
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({
+    prompt: "select_account",
+});
 
 function isRutgersEmail(email) {
     return email.endsWith('@rutgers.edu') || email.endsWith('@scarletmail.rutgers.edu')
