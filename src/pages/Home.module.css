@@ -1,0 +1,38 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 28px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.infoList {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.previewWrap {
+    min-width: 0;
+}
+
+.previewImage {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (min-width: 900px) {
+    .section {
+        display: grid;
+        grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+        gap: 32px;
+        align-items: start;
+    }
+}

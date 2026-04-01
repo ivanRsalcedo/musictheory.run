@@ -40,7 +40,7 @@ export default function AuthControls() {
                     className={styles.button}
                     onClick={handleSignIn}
                     disabled={isSigningIn}>
-                    {isSigningIn ? 'Signing in...' : 'Rutgers sign in'}
+                    {isSigningIn ? 'Signing in...' : 'Rutgers Login'}
                 </button>
             </div>
         )

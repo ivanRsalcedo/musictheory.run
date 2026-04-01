@@ -129,3 +129,23 @@ a:focus-visible {
   padding: 0 14px;
   font-size: 1rem;
 }
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rutgers-red);
+  background: white;
+  color: var(--rutgers-red);
+  padding: 8px 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button-link:hover,
+.button-link:focus-visible {
+  background: var(--rutgers-red);
+  color: white;
+  text-decoration: none;
+  opacity: 1;
+}
