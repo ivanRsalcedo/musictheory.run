@@ -1,6 +1,6 @@
 import styles from './ChordCard.module.css'
 import PianoDisplay from './PianoDisplay'
-import { FaHeart, FaRegHeart, FaFilePdf } from 'react-icons/fa'
+import { FaStar, FaRegStar, FaFilePdf } from 'react-icons/fa'
 
 function formatFingering(fingering = []) {
     if (!fingering.length) return ''
@@ -68,14 +68,14 @@ export default function ChordCard({
                         type="button"
                         className={
                             isFavorite
-                                ? `${styles.iconButton} ${styles.favoriteButtonActive}`
-                                : styles.iconButton
+                                ? `${styles.iconButton} ${styles.favoriteButton} ${styles.favoriteButtonActive}`
+                                : `${styles.iconButton} ${styles.favoriteButton}`
                         }
                         onClick={() => onToggleFavorite(chord.id)}
                         aria-label={isFavorite ? `Remove ${chord.title} from favorites` : `Add ${chord.title} to favorites`}
                         title={isFavorite ? 'Remove favorite' : 'Add favorite'}
                     >
-                        {isFavorite ? <FaHeart /> : <FaRegHeart />}
+                        {isFavorite ? <FaStar /> : <FaRegStar />}
                     </button>
 
                     

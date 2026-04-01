@@ -25,7 +25,7 @@
 
 .title {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     line-height: 1.15;
 }
 
@@ -44,7 +44,7 @@
 .cardActions {
     display: flex;
     align-items: flex-start;
-    gap: 0.4rem;
+    gap: 0.45rem;
     flex-shrink: 0;
 }
 
@@ -62,16 +62,40 @@
     text-decoration: none;
     flex-shrink: 0;
     line-height: 1;
+    padding: 0;
+}
+
+.favoriteButton,
+.pdfButton {
+    font-size: 1.15rem;
+}
+
+.favoriteButton {
+    color: var(--rutgers-taupe);
 }
 
 .favoriteButtonActive {
-    color: var(--rutgers-red);
-    border-color: var(--rutgers-red);
+    color: var(--rutgers-gold);
+    border-color: var(--rutgers-gold);
 }
 
 .pdfButton {
     color: var(--rutgers-red);
-    border-color: var(--rutgers-red);
+}
+
+.favoriteButton:disabled,
+.iconButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.favoriteButton:focus-visible,
+.iconButton:focus-visible,
+.pdfButton:focus-visible,
+.playButton:focus-visible,
+.modeButton:focus-visible {
+    outline: 2px solid var(--rutgers-blue);
+    outline-offset: 2px;
 }
 
 .previewRow {
@@ -123,17 +147,9 @@
 }
 
 .playButton:disabled,
-.modeButton:disabled,
-.iconButton:disabled {
+.modeButton:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-}
-
-.iconButton:focus-visible,
-.playButton:focus-visible,
-.modeButton:focus-visible {
-    outline: 2px solid var(--rutgers-blue);
-    outline-offset: 2px;
 }
 
 .pianoPreview {
@@ -151,21 +167,21 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .iconButton:hover {
-        border-color: var(--rutgers-red);
-        color: var(--rutgers-red);
+    .favoriteButton:hover {
+        color: var(--rutgers-gold);
+        border-color: var(--rutgers-gold);
     }
 
     .favoriteButtonActive:hover {
-        color: var(--rutgers-red);
-        border-color: var(--rutgers-red);
+        color: var(--rutgers-gold);
+        border-color: var(--rutgers-gold);
         opacity: 0.85;
     }
 
     .pdfButton:hover {
-        background: var(--rutgers-red);
-        color: white;
+        color: var(--rutgers-red);
         border-color: var(--rutgers-red);
+        opacity: 0.8;
     }
 
     .playButton:hover,
@@ -186,7 +202,7 @@
     }
 
     .title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .group {
@@ -195,11 +211,6 @@
 
     .cardActions {
         gap: 0.3rem;
-    }
-
-    .iconButton {
-        width: 1.9rem;
-        height: 1.9rem;
     }
 
     .previewButtons,
@@ -218,5 +229,10 @@
 
     .modeButton {
         font-size: 0.48rem;
+    }
+
+    .iconButton {
+        width: 1.9rem;
+        height: 1.9rem;
     }
 }

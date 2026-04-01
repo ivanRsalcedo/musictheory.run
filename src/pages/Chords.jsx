@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import useAuth from '../hooks/useAuth'
 import { getUserFavorites, addFavorite, removeFavorite } from '../lib/favorites'
-import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { FaStar, FaRegStar } from 'react-icons/fa'
 import { useSearchParams } from 'react-router'
 import styles from './Chords.module.css'
 import { chords } from '../data/chords'
@@ -315,7 +315,7 @@ export default function Chords() {
                         aria-label={showFavoritesOnly ? 'Show all chords' : 'Show favorites only'}
                         title={showFavoritesOnly ? 'Show all chords' : 'Show favorites only'}
                     >
-                        {showFavoritesOnly ? <FaHeart /> : <FaRegHeart />}
+                        {showFavoritesOnly ? <FaStar /> : <FaRegStar />}
                     </button>
 
                     
