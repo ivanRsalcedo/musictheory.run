@@ -5,8 +5,14 @@ export const archiveTimelineData = [
             {
                 id: 'spring-2026-midterm-1',
                 songTitle: 'In This Place',
-                author: 'Ivan',
+                author: 'Ivan Salcedo',
                 audioUrl: 'audio/archive/ivan-in this place (spring 2026 midterm).wav',
+            },
+            {
+                id: 'spring-2026-midterm-2',
+                songTitle: 'In This Place',
+                author: 'Jesus Paulino',
+                audioUrl: 'audio/archive/jesus paulino-in this place (II - spring 2026 midterm).wav',
             },
         ],
         final: [
@@ -28,7 +34,7 @@ export const archiveTimelineData = [
             {
                 id: 'fall-2025-final-1',
                 songTitle: 'Winter Sleep',
-                author: 'Ivan',
+                author: 'Ivan Salcedo',
                 audioUrl: 'audio/archive/ivan-wintersong (fall 2025 final).wav',
             },
             {
