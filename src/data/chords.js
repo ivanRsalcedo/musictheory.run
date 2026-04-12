@@ -27,6 +27,11 @@ const CHORD_GROUPS = {
         name: 'Borrowed Chords From F Major',
         link: '/pdfs/chordal-components/Chordal Components - Borrowed Chords From F Major.pdf',
     },
+    BORROWED_FROM_F_HARMONIC_MAJOR: {
+        course: ['Music Theory II'],
+        name: 'Borrowed Chords From F Harmonic Major',
+        link: '/pdfs/chordal-components/Chordal Components - Borrowed Chords from F Harmonic Major.pdf',
+    },
 }
 
 class Chord {
@@ -322,6 +327,34 @@ const c7SusAdd3 = new Chord(
 
 /*
 |--------------------------------------------------------------------------
+| Borrowed Chords from F Harmonic Major
+|--------------------------------------------------------------------------
+*/
+
+const c7Flat9 = new Chord(
+    'C7(b9)',
+    ['C3', 'E3', 'Bb3', 'C4', 'C#4', 'E4', 'G4'],
+    ['L5', 'L3', 'L1', 'R1', 'R2', 'R3', 'R5'],
+    CHORD_GROUPS.BORROWED_FROM_F_HARMONIC_MAJOR
+).setPage(1)
+
+const c7SusFlat9Add3 = new Chord(
+    'C7sus(b9)(add 3)',
+    ['C3', 'F3', 'Bb3', 'C4', 'C#4', 'E4', 'G4'],
+    ['L5', 'L2', 'L1', 'R1', 'R2', 'R3', 'R5'],
+    CHORD_GROUPS.BORROWED_FROM_F_HARMONIC_MAJOR
+).setPage(2)
+
+const a7Sharp9 = new Chord(
+    'A7(#9)',
+    ['A2', 'G3', 'C4', 'C#4', 'E4', 'G4'],
+    ['L5', 'L1', 'R1', 'R2', 'R3', 'R5'],
+    CHORD_GROUPS.BORROWED_FROM_F_HARMONIC_MAJOR
+).setPage(3)
+
+
+/*
+|--------------------------------------------------------------------------
 | Progression links
 |--------------------------------------------------------------------------
 |
@@ -373,12 +406,19 @@ const borrowedChordsFromFMajor = [
     c7SusAdd3,
 ]
 
+const borrowedChordsFromFHarmonicMajor = [
+    c7Flat9,
+    c7SusFlat9Add3,
+    a7Sharp9,
+]
+
 const chords = [
     ...cMajorExtendedChords,
     ...cMajorDiatonicAddAndExtendedChords,
     ...borrowedChordsFromEbMajor,
     ...borrowedChordsFromFMajor,
     ...borrowedChordsFromCMelodicMajor,
+    ...borrowedChordsFromFHarmonicMajor,
 ]
 
 export {
@@ -388,6 +428,7 @@ export {
     cMajorDiatonicAddAndExtendedChords,
     borrowedChordsFromEbMajor,
     borrowedChordsFromFMajor,
+    borrowedChordsFromFHarmonicMajor,
     borrowedChordsFromCMelodicMajor,
     chords,
 }
